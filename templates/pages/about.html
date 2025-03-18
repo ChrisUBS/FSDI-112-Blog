@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Me{% endblock title %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="container text-center">
+    <h1 class="fw-bold">About Me 👨‍💻</h1>
+    <p class="lead">A passionate software developer & tech enthusiast.</p>
+</div>
+
+<!-- Personal Introduction -->
+<section class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2 class="text-primary">Hi, I'm Christian! 👋</h2>
+            <p class="fs-5 text-muted">
+                I’m a student at <strong>SDGKU</strong> and the creator of <strong>My Blog 📝</strong>,
+                a platform designed to connect people through discussions and idea-sharing.
+                I love coding, learning about emerging technologies, and building projects
+                that make a difference.
+            </p>
+            <p class="fs-5 text-muted">
+                My goal is to create intuitive, user-friendly software solutions
+                that enhance digital experiences and solve real-world problems.
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'img/puppy.jpg' %}" alt="A puppy" class="img-fluid rounded shadow-lg" width="300">
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="container my-5">
+    <h2 class="text-center text-success mb-4">My Skills & Technologies 🚀</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="p-3 shadow-sm bg-white rounded">
+                <h4>💻 Web Development</h4>
+                <p class="text-muted">HTML, CSS, JavaScript, Bootstrap</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 shadow-sm bg-white rounded">
+                <h4>⚙️ Backend</h4>
+                <p class="text-muted">Python (Django, Flask), Node.js</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 shadow-sm bg-white rounded">
+                <h4>🗄 Databases</h4>
+                <p class="text-muted">MySQL, PostgreSQL, SQLite</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="container text-center my-5">
+    <h2 class="text-primary">Let's Connect! 📩</h2>
+    <p class="text-muted fs-5">If you're interested in tech, software development, or just want to say hi,
+        feel free to reach out!</p>
+    <a href="mailto:christian.bonilla@uabc.edu.mx" class="btn btn-success btn-lg">Contact Me</a>
+</section>
+{% endblock content %}

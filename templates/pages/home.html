@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="container text-center">
+    <h1 class="fw-bold">Welcome to My Blog 📝</h1>
+    <p class="lead">A place where ideas take shape, stories are told, and knowledge is shared.</p>
+</div>
+
+<!-- About the Blog -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <p class="text-muted fs-5">
+                Dive into a world of insightful articles, personal stories, and expert opinions.
+                Whether you're here to explore trending topics, improve your writing, or share your passion,
+                <strong>this blog is your creative space.</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- How to Get Started -->
+<section class="container my-5">
+    <h2 class="text-center text-primary mb-4">Start Your Blogging Journey 🚀</h2>
+    <div class="row text-center">
+        <div class="col-md-3">
+            <div class="p-4 shadow-sm bg-white rounded">
+                <h4>🖊 Create a Blog</h4>
+                <p class="text-muted">Sign up and start sharing your stories with the world.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 shadow-sm bg-white rounded">
+                <h4>📖 Write & Publish</h4>
+                <p class="text-muted">Craft compelling articles and publish them in seconds.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 shadow-sm bg-white rounded">
+                <h4>🌍 Engage with Readers</h4>
+                <p class="text-muted">Connect with like-minded individuals through comments and discussions.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 shadow-sm bg-white rounded">
+                <h4>🔥 Stay Inspired</h4>
+                <p class="text-muted">Follow top creators and discover trending topics daily.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts -->
+<section class="container my-5">
+    <h2 class="text-center text-success mb-4">Latest Posts 📢</h2>
+    <div class="row">
+        {% for post in latest_posts %}
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="text-muted">By {{ post.author }} | {{ post.date }}</p>
+                    <p class="card-text">{{ post.excerpt }}</p>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-muted">No blog posts yet. Be the first to write one!</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}
