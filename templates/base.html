@@ -28,6 +28,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about' %}">About ℹ️</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list' %}">Posts 📫</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <input type="submit" class="nav-link" value="Log Out ❌">
+                    </form>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign Up ⬆️</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In 🚹</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

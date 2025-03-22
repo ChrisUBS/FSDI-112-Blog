@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}New Post{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card bg-dark text-light shadow-lg border-0 p-4">
+        <div class="card-body">
+            <h1 class="display-4 fw-bold text-warning text-center">Create a New Post</h1>
+            {% if user.is_authenticated %}
+            <form method="POST" class="mt-4">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-success" value="New">
+            </form>
+            {% else %}
+            <p class="text-center">First, you need to Log In!</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

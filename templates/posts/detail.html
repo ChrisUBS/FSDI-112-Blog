@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card bg-dark text-light shadow-lg border-0 p-4">
+        <div class="card-body">
+            <h1 class="display-4 fw-bold text-warning">{{ post.title }}</h1>
+            <h3 class="text-secondary mt-5">{{ post.subtitle }}</h3>
+            <small class="text-warning">
+                Created on: {{ post.created_on }} | By: {{ post.author }}
+            </small>
+            <hr class="border-warning">
+            <p class="lead">{{ post.body }}</p>
+            
+            {% if user.is_authenticated and post.author == user %}
+            <!-- Edit and Delete buttons -->
+            <div class="mt-4">
+                <a href="{% url 'edit' post.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

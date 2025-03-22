@@ -73,6 +73,12 @@ h2 {
     color: #28a745 !important;
 }
 
+/* Buttons Container */
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Buttons */
 .btn-primary {
     background-color: #28a745;

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1 class="display-4 fw-bold text-warning text-center">{{ title }} Posts</h1>
+
+    {% if user.is_authenticated %}
+    <div class="btn-container my-4">
+        <a href="{% url 'list' %}" class="btn btn-success">See Published</a>
+        <a href="{% url 'draft' %}" class="btn btn-success">See Drafts</a>
+        <a href="{% url 'archived' %}" class="btn btn-success">See Archived</a>
+        <a href="{% url 'new' %}" class="btn btn-success">Create New Post</a>
+    </div>
+    {% endif %}
+
+    <div class="row mt-4">
+        {% for post in post_list %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card bg-dark text-light shadow-lg border-0">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">{{ post.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-secondary">{{ post.subtitle }}</h6>
+                    <p class="card-text">{{ post.body|truncatechars:64 }}</p>
+                    <a href="{% url 'detail' post.id %}" class="btn btn-warning text-dark">Continue Reading</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-light">No posts available yet. Be the first to create one!</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
